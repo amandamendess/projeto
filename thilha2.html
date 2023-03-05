@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="trilha2.css" />
+        <title>Formulário de Contato</title>
+        
+    </head>
+
+    <body>
+        <div class="container">  
+            <header class="row">
+                <div id="barra_acessibilidade" class="d-none">
+                    <ul id="atalhos">
+                        <li><a href="#menu" accesskey="1">Ir para menu [1]</a></li>
+                        <li><a href="#formulario" accesskey="2">Ir para formulário [2]</a></li>
+                    </ul>   
+                </div>  
+
+                
+                <div class="row">
+                    <div class="col-sm-3">   
+                        <img src="logo.png" alt="Logotipo da empresa, metade de uma águia com as asas abertas.">
+                    </div>
+                    
+                    <div class=" col-sm-9">
+                        <h1  class="text-center">Empresa XPTO</h1>
+                    </div>
+                </div>
+            </header>
+
+            <section class="row">
+                <div class="d-none">
+                    <h2 id="menu">Menu</h2>
+                </div>
+                
+                <div class="d-none d-sm-block" >
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="nav navbar-nav">
+                            <div class="collapse navbar-collapse">
+                                <div><a class="nav-item nav-link active href='#'">Home</a></div>
+                                <div><a class="nav-item nav-link href='#'">Contato</a></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="d-sm-none">
+                    <div class="pos-f-t">
+                        <nav class="navbar navbar-light bg-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Alterna navegação">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </nav>
+                        <div class="collapse" id="navbarToggleExternalContent">
+                          <div class="bg-ligth p-4">
+                           
+                                <div class="nav-item nav-link ">Home</div>
+                                <div class="nav-item nav-link">Contato</div>
+                           
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <article class="col-12">  
+                    <h2 id="formulario">Formulário de Contato</h2>
+
+                    <form id="form">
+                        <div class="form-group row">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome*</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control required" id="nome"  placeholder="Digite seu nome" oninput="validacaoNome()">
+                                <span class="span-required">Campo nome obrigatório.</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">Email*</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control required" id="email" placeholder="email@exemplo.com" oninput="validaEmail()">
+                                <span class="span-required">Campo email obrigatório.</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mensagem" class="col-sm-2 col-form-label">Mensagem*</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control required" id="mensagem" oninput="validaMensagem()">
+                              <span class="span-required">Campo mensagem obrigatório.</span>
+                              <button type="submit" class="btn btn-primary my-1">Enviar</button> 
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <span>*Campos obrigatórios</span>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </form>  
+                </article>
+            </section>
+        
+
+            <footer class="row">
+                <div class="col-12">
+                    <p>Copyright © 2021</p>
+                </div>
+            </footer>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <noscript>Atualize seu navegador</noscript>
+    
+    </body>
+
+    <script>
+
+        const form = document.getElementById('form');
+        const campos = document.querySelectorAll('.required');
+        const spans  = document.querySelectorAll('.span-required');
+    
+        function validacaoErro(index){
+            campos[index].style.border = '2px solid red';
+            spans[index].style.display = 'block';
+           
+        }
+    
+        function ValidacaoCorreta(index){
+            campos[index].style.border = '2px solid green';
+            spans[index].style.display = 'none';
+        }
+    
+        function validacaoNome(){
+            if(campos[0].value.length == ''){
+                validacaoErro(0);
+            } else {
+                ValidacaoCorreta(0);
+            }
+        }
+    
+        function validaEmail(){
+            if(campos[1].value.length == ''){
+                validacaoErro(1);
+            } else {
+                ValidacaoCorreta(1);
+            }   
+        }
+
+        function validaMensagem(){
+            if(campos[2].value.length == ''){
+                validacaoErro(2);
+            } else {
+                ValidacaoCorreta(2);
+            }
+        }
+    
+    
+    </script>
+    
+
+</html>
